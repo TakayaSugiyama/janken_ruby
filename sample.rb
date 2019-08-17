@@ -2,16 +2,12 @@ class Player
   def hand
     # コンソールを入力待ち状態にし、プレイヤーがコンソールから打ち込んだ値を出力する処理のメソッドの処理をこの中に作成する
     @hand = gets.chomp
-    #空白文字を防ぐ
-    unless @hand.empty? 
-      #その他の文字を防ぐ
-      hand = @hand.to_i
-      unless hand == 0 || hand == 1 || hand == 2 
-         @hand = @hand.to_i
+      #マッチしたら数値に変換
+      if  @hand =~ /[012]/
+        @hand = @hand.to_i
       end
     end
-    @hand
-  end
+  @hand
 end
 
 class Enemy
@@ -37,6 +33,7 @@ class Janken
     elsif  player_hand == 0 && enemy_hand == 0 || player_hand == 0 && enemy_hand == 0 || player_hand == 1 && enemy_hand == 1
       puts "あいこです。"
     else  
+       #p player_hand
       puts "0〜2の数字を入力してください。"
    end
   end
