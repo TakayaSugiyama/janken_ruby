@@ -3,7 +3,7 @@ class Player
     # コンソールを入力待ち状態にし、プレイヤーがコンソールから打ち込んだ値を出力する処理のメソッドの処理をこの中に作成する
     @hand = gets.chomp
       #マッチしたら数値に変換
-      if  @hand =~ /[012]/
+      if  @hand =~ /[012]/  
         @hand = @hand.to_i
       end
     end
@@ -27,13 +27,14 @@ class Janken
     if player_hand == 2 && enemy_hand == 0 || player_hand == 1 && enemy_hand == 2 || player_hand == 0 && enemy_hand == 1
       puts "相手の手は#{options[enemy_hand]}です。あなたの勝ちです。"
       exit
-    elsif player_hand == 2 && enemy_hand == 1 || player_hand == 1 && enemy_hand == 0 || player_hand == 0 && enemy_hand == 1
+    elsif player_hand == 2 && enemy_hand == 1 || player_hand == 1 && enemy_hand == 0 || player_hand == 0 && enemy_hand == 2
       puts "相手の手は#{options[enemy_hand]}です。あなたの負けです。"
       exit
-    elsif  player_hand == 0 && enemy_hand == 0 || player_hand == 0 && enemy_hand == 0 || player_hand == 1 && enemy_hand == 1
+    elsif  player_hand == 0 && enemy_hand == 0 || player_hand == 1 && enemy_hand == 1 || player_hand == 2 && enemy_hand == 2
       puts "あいこです。"
     else  
-       #p player_hand
+      # p enemy_hand 
+      # p player_hand 
       puts "0〜2の数字を入力してください。"
    end
   end
